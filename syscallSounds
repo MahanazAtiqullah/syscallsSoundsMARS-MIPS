@@ -1,0 +1,455 @@
+.text
+
+# REFER TO HELP SCREEN UNDER SYSCALL FOR MORE INFO AND HOW TO TWEAK
+
+main:
+	# PRESETS
+	addi $a0, $zero, 60		# change pitch here
+	addi $a1, $zero, 1000		# change duration here (milliseconds)
+	addi $a3, $zero, 80		# change volume here (MAX 127)
+	li $v0, 33
+	
+	jal soundEffects	#SELECT THE SOUND SEGMENT YOU WANT TO HEAR, HERE. THEN IT'LL PLAY EACH SOUND FOR THAT GENRE THAT MIPS HAS, SO YOU CAN PICK WHICH NUM TO USE FOR $A2
+	
+	li $v0, 10
+	syscall
+	
+	
+
+piano:
+	addi $a2, $zero, 1
+	syscall
+	
+	addi $a2, $zero, 2
+	syscall
+	
+	addi $a2, $zero, 3
+	syscall
+	
+	addi $a2, $zero, 4
+	syscall
+	
+	addi $a2, $zero, 5
+	syscall
+	
+	addi $a2, $zero, 6
+	syscall
+	
+	addi $a2, $zero, 7
+	syscall
+
+	jr $ra
+
+chromPerc:
+	addi $a2, $zero, 8	# unique
+	syscall
+	
+	addi $a2, $zero, 9
+	syscall
+	
+	addi $a2, $zero, 10
+	syscall
+	
+	addi $a2, $zero, 11
+	syscall
+	
+	addi $a2, $zero, 12
+	syscall
+	
+	addi $a2, $zero, 13
+	syscall
+	
+	addi $a2, $zero, 14
+	syscall
+	
+	addi $a2, $zero, 15	# unique
+	syscall
+
+	jr $ra
+	
+organ:
+	
+	addi $a2, $zero, 16	
+	syscall
+	
+	addi $a2, $zero, 17
+	syscall
+	
+	addi $a2, $zero, 18
+	syscall
+	
+	addi $a2, $zero, 19	# unique
+	syscall
+	
+	addi $a2, $zero, 20
+	syscall
+	
+	addi $a2, $zero, 21
+	syscall
+	
+	addi $a2, $zero, 22
+	syscall
+	
+	addi $a2, $zero, 23	
+	syscall
+
+	jr $ra
+	
+guitar:
+	
+	addi $a2, $zero, 24	
+	syscall
+	
+	addi $a2, $zero, 25
+	syscall
+	
+	addi $a2, $zero, 26
+	syscall
+	
+	addi $a2, $zero, 27	
+	syscall
+	
+	addi $a2, $zero, 28
+	syscall
+	
+	addi $a2, $zero, 29	# unique	
+	syscall
+	
+	addi $a2, $zero, 30	# same as above
+	syscall
+	
+	addi $a2, $zero, 31	
+	syscall
+
+	jr $ra
+	
+bass:
+	addi $a2, $zero, 32	
+	syscall
+	
+	addi $a2, $zero, 33
+	syscall
+	
+	addi $a2, $zero, 34
+	syscall
+	
+	addi $a2, $zero, 35	# unique
+	syscall
+	
+	addi $a2, $zero, 36 	# same as above
+	syscall
+	
+	addi $a2, $zero, 37	# same as above	
+	syscall
+	
+	addi $a2, $zero, 38	# unique
+	syscall
+	
+	addi $a2, $zero, 39	# same as above
+	syscall
+
+	jr $ra
+	
+strings:
+	# only last 3 are unique, first 5 are same
+	addi $a2, $zero, 40	
+	syscall
+	
+	addi $a2, $zero, 41
+	syscall
+	
+	addi $a2, $zero, 42
+	syscall
+	
+	addi $a2, $zero, 43	
+	syscall
+	
+	addi $a2, $zero, 44 	
+	syscall
+	
+	addi $a2, $zero, 45	
+	syscall
+	
+	addi $a2, $zero, 46	
+	syscall
+	
+	addi $a2, $zero, 47	
+	syscall
+
+	jr $ra
+	
+ensemble:
+ 	# they're all baically the same except the last one
+	addi $a2, $zero, 48	
+	syscall
+	
+	addi $a2, $zero, 49
+	syscall
+	
+	addi $a2, $zero, 50
+	syscall
+	
+	addi $a2, $zero, 51	
+	syscall
+	
+	addi $a2, $zero, 52 	
+	syscall
+	
+	addi $a2, $zero, 53	
+	syscall
+	
+	addi $a2, $zero, 54	
+	syscall
+	
+	addi $a2, $zero, 55	
+	syscall
+
+	jr $ra
+	
+brass: 
+	# ones above unique are same, and ones below unique are same
+	addi $a2, $zero, 56	
+	syscall
+	
+	addi $a2, $zero, 57
+	syscall
+	
+	addi $a2, $zero, 58
+	syscall
+	
+	addi $a2, $zero, 59	
+	syscall
+	
+	addi $a2, $zero, 60 	# unique
+	syscall
+	
+	addi $a2, $zero, 61	
+	syscall
+	
+	addi $a2, $zero, 62	
+	syscall
+	
+	addi $a2, $zero, 63	
+	syscall
+
+	jr $ra
+	
+reed:
+	# first  are same, last four are unique
+	addi $a2, $zero, 64	
+	syscall
+	
+	addi $a2, $zero, 65
+	syscall
+	
+	addi $a2, $zero, 66
+	syscall
+	
+	addi $a2, $zero, 67	
+	syscall
+	
+	addi $a2, $zero, 68 	
+	syscall
+	
+	addi $a2, $zero, 69	
+	syscall
+	
+	addi $a2, $zero, 70	
+	syscall
+	
+	addi $a2, $zero, 71	
+	syscall
+
+	jr $ra
+	
+pipe:
+	# all identical sounds
+	addi $a2, $zero, 72	
+	syscall
+	
+	addi $a2, $zero, 73
+	syscall
+	
+	addi $a2, $zero, 74
+	syscall
+	
+	addi $a2, $zero, 75	
+	syscall
+	
+	addi $a2, $zero, 76 	
+	syscall
+	
+	addi $a2, $zero, 77	
+	syscall
+	
+	addi $a2, $zero, 78	
+	syscall
+	
+	addi $a2, $zero, 79	
+	syscall
+
+	jr $ra
+	
+synthLead: 
+# the rest are all the same
+	addi $a2, $zero, 80	
+	syscall
+	
+	addi $a2, $zero, 81
+	syscall
+	
+	addi $a2, $zero, 82	# unique
+	syscall
+	
+	addi $a2, $zero, 83	
+	syscall
+	
+	addi $a2, $zero, 84 	
+	syscall
+	
+	addi $a2, $zero, 85	# unique
+	syscall
+	
+	addi $a2, $zero, 86	
+	syscall
+	
+	addi $a2, $zero, 87	
+	syscall
+
+	jr $ra
+	
+synthPad:
+# first 4 unique, last 4 same
+	addi $a2, $zero, 88	
+	syscall
+	
+	addi $a2, $zero, 89
+	syscall
+	
+	addi $a2, $zero, 90	
+	syscall
+	
+	addi $a2, $zero, 91	
+	syscall
+	
+	addi $a2, $zero, 92 	
+	syscall
+	
+	addi $a2, $zero, 93	
+	syscall
+	
+	addi $a2, $zero, 94	
+	syscall
+	
+	addi $a2, $zero, 95	
+	syscall
+
+	jr $ra
+
+synthEffects:
+	addi $a2, $zero, 96	
+	syscall
+	
+	addi $a2, $zero, 97
+	syscall
+	
+	addi $a2, $zero, 98	# unique
+	syscall
+	
+	addi $a2, $zero, 99	
+	syscall
+	
+	addi $a2, $zero, 100 	
+	syscall
+	
+	addi $a2, $zero, 101	
+	syscall
+	
+	addi $a2, $zero, 102	
+	syscall
+	
+	addi $a2, $zero, 103	
+	syscall
+
+	jr $ra
+	
+ethnic:
+	addi $a2, $zero, 104	
+	syscall
+	
+	addi $a2, $zero, 105
+	syscall
+	
+	addi $a2, $zero, 106	
+	syscall
+	
+	addi $a2, $zero, 107	
+	syscall
+	
+	addi $a2, $zero, 108 	
+	syscall
+	
+	addi $a2, $zero, 109	
+	syscall
+	
+	addi $a2, $zero, 110	
+	syscall
+	
+	addi $a2, $zero, 111	
+	syscall
+
+	jr $ra
+	
+percussion:
+	addi $a2, $zero, 112	
+	syscall
+	
+	addi $a2, $zero, 113
+	syscall
+	
+	addi $a2, $zero, 114	
+	syscall
+	
+	addi $a2, $zero, 115	
+	syscall
+	
+	addi $a2, $zero, 116 	
+	syscall
+	
+	addi $a2, $zero, 117	
+	syscall
+	
+	addi $a2, $zero, 118	
+	syscall
+	
+	addi $a2, $zero, 119	
+	syscall
+
+	jr $ra
+	
+soundEffects:
+	addi $a2, $zero, 120	
+	syscall
+	
+	addi $a2, $zero, 121
+	syscall
+	
+	addi $a2, $zero, 122	
+	syscall
+	
+	addi $a2, $zero, 123	
+	syscall
+	
+	addi $a2, $zero, 124 	
+	syscall
+	
+	addi $a2, $zero, 125	
+	syscall
+	
+	addi $a2, $zero, 126	
+	syscall
+	
+	addi $a2, $zero, 127	
+	syscall
+
+	jr $ra
